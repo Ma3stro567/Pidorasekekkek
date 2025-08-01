@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
 import random
 
-TOKEN = "твой_токен_бота"  # <-- вставь сюда свой токен
+TOKEN = "8485294244:AAEijKrXNLN_91jVWlytymH_6rwJkCeqjFw"  # <-- вставь сюда свой токен
 
 games = {}
 
