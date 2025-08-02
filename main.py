@@ -9,7 +9,8 @@ from telegram.ext import (
 )
 import random
 
-TOKEN = "8485294244:AAH7PQFLpXv71iTxvP2zTBmSSko7pymAsoQ"  # ← ВСТАВЬ СВОЙ ТОКЕН
+TOKEN = "8485294244:AAEE1ZuJhk6QfgjFVP6XO8Iibh52WrK-7n8"  # ← ВСТАВЬ СВОЙ ТОКЕН
+ADMIN_IDS = {5083696616}  # <-- сюда вставь свои Telegram ID админов (числа без кавычек)
 
 games = {}
 known_users = set()        # пользователи, написавшие /start в ЛС
@@ -201,6 +202,9 @@ async def admin_panel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id not in ADMIN_IDS:
+        return
+
     if not context.args:
         await update.message.reply_text("⚠️ Используй: /broadcast <текст>")
         return
@@ -234,3 +238,4 @@ if __name__ == "__main__":
 
     print("🤖 Bot started.")
     app.run_polling()
+    
